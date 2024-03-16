@@ -1,3 +1,5 @@
+import org.apache.logging.log4j.core.appender.AppenderSet
+
 ThisBuild / version := "0.1.0-SNAPSHOT"
 
 ThisBuild / scalaVersion := "2.13.2"
@@ -13,7 +15,7 @@ val sparkDependencies = Seq(
 )
 
 lazy val root = (project in file("."))
-  .aggregate()
+  .aggregate(taxiPredictionApi)
   .settings(
     name := "arrow-api",
     libraryDependencies += fastTest,
@@ -21,5 +23,16 @@ lazy val root = (project in file("."))
     libraryDependencies ++= sparkDependencies.map(_ % "provided"),
     assemblyPackageScala / assembleArtifact := false,
     assemblyPackageDependency / assembleArtifact := false
+  )
+
+// Apps
+
+lazy val taxiPredictionApi = (project in file("taxi-prediction-api"))
+  .settings(
+    name := "taxi-prediction-api",
+    libraryDependencies += fastTest,
+    libraryDependencies += uTest,
+    libraryDependencies ++= sparkDependencies.map(_ % "provided"),
+    assemblyPackageScala / assembleArtifact := false
   )
 
