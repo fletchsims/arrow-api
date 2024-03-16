@@ -3,7 +3,7 @@ package com.arrow.utils
 import org.apache.spark.sql._
 
 trait SparkService {
-  val spark: SparkSession = SparkSession
+  implicit val spark: SparkSession = SparkSession
     .builder()
     .appName(this.toString)
     .config("spark.serializer", "org.apache.spark.serializer.KryoSerializer")

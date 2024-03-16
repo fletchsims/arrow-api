@@ -1,8 +1,10 @@
 package com.arrow.taxi
 
-import org.apache.spark.sql.Dataset
+import org.apache.spark.sql.{Dataset, Encoder, SparkSession}
+
+import scala.reflect.runtime.universe.TypeTag
 
 trait TaxiPredictionInterface {
   this: TaxiPredictionService =>
-  def reader(path: String, format: String): Dataset[_]
+  def reader[T <: Product: TypeTag](path: String, format: String)(implicit encoder: Encoder[T]): Dataset[T]
 }
