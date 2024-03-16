@@ -2,8 +2,6 @@ package com.arrow.model
 
 import java.sql.Timestamp
 
-import org.apache.spark.sql.{Encoder, Encoders}
-
 case class TaxiModel(
                       VendorID: Long,
                       tpep_pickup_datetime: Option[Timestamp],
