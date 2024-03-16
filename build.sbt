@@ -6,6 +6,8 @@ ThisBuild / scalaVersion := "2.13.2"
 
 val SparkVersion = "3.3.2"
 
+val akkaHttp = "com.typesafe.akka" %% "akka-http" % "10.2.6"
+val akkaStream = "com.typesafe.akka" %% "akka-stream" % "2.6.17"
 val uTest = "com.lihaoyi" %% "utest" % "0.7.11" % "test"
 val fastTest = "com.github.mrpowers" %% "spark-fast-tests" % "1.1.0" % "test"
 
@@ -32,6 +34,8 @@ lazy val taxiPredictionApi = (project in file("taxi-prediction-api"))
     name := "taxi-prediction-api",
     libraryDependencies += fastTest,
     libraryDependencies += uTest,
+    libraryDependencies += akkaHttp,
+    libraryDependencies += akkaStream,
     libraryDependencies ++= sparkDependencies.map(_ % "provided"),
     assemblyPackageScala / assembleArtifact := false
   )
