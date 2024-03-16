@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/arrow-api.iml" filepath="$PROJECT_DIR$/.idea/arrow-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/arrow-api.iml" filepath="$PROJECT_DIR$/.idea/modules/arrow-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/arrow-api-build.iml" filepath="$PROJECT_DIR$/.idea/modules/arrow-api-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/taxi-prediction-api.iml" filepath="$PROJECT_DIR$/.idea/modules/taxi-prediction-api.iml" />
     </modules>
   </component>
 </project>

@@ -25,3 +25,4 @@ build
 .bloop/
 .metals
 project/metals.sbt
+.idea/
