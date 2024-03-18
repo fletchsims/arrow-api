@@ -6,8 +6,8 @@ import org.apache.spark.sql.{Dataset, Encoder, Encoders}
 import scala.reflect.runtime.universe.TypeTag
 
 trait TaxiPredictionService extends SparkService with TaxiPredictionInterface {
-  def reader[T <: Product : TypeTag](path: String, format: String)(implicit
-                                                                   encoder: Encoder[T]
+  def reader[T <: Product: TypeTag](path: String, format: String)(implicit
+      encoder: Encoder[T]
   ): Dataset[T] = {
     val supportedFormats = Set("json", "csv", "parquet")
     if (!supportedFormats.contains(format)) {
